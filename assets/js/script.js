@@ -110,7 +110,7 @@ const showModal = () => {
       const index = e.getAttribute('myIndex');
       modal.classList.toggle('hidden');
       const tech = projects[index].technologies;
-      let li = '';
+      const li = '';
       for (let i = 0; i < tech.length; i += 1) {
         li += `
 <li class="modal-list-item">${tech[i]}</li>
@@ -148,10 +148,10 @@ showModal();
 const error = document.querySelector('.errorMsg');
 const submitBtn = document.querySelector('#submit-btn');
 const form = document.querySelector('.contact-form');
+const email = document.querySelector('#email').value;
 
 submitBtn.addEventListener('click', (e) => {
   const regEx = /^([a-z0-9_\-.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
-  const email = document.querySelector('#email').value;
 
   if (email.match(regEx)) {
     form.submit();
@@ -175,7 +175,7 @@ formArray.forEach((e) => {
 });
 
 window.addEventListener('load', () => {
-  const formInfo = JSON.parse(localStorage.getItem('formValues'));
+  const formInfo = JSON.parse(localStorage.getItem('formValue'));
   if (formInfo) {
     inputs[1].value = formInfo.name;
     inputs[3].value = formInfo.email;
